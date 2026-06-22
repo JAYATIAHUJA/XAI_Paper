@@ -273,7 +273,7 @@ def run_cv_pipeline(X_raw, y, gender_raw, preprocessor, sensitive_idx, best_xgb_
             results[name][f"{m}_mean"] = np.mean(vals)
             results[name][f"{m}_std"]  = np.std(vals)
             
-    return results
+    return results, cv_metrics
 
 # ─────────────────────────────────────────────────────────
 # MAIN EXECUTION
@@ -299,7 +299,7 @@ if __name__ == "__main__":
     rec_best_params = tune_xgboost(rec_X_train, rec_y_train)
     
     print("\n  [CV] Running Stratified 5-Fold CV...")
-    rec_results = run_cv_pipeline(
+    rec_results, rec_cv_metrics = run_cv_pipeline(
         rec_X_raw, rec_y, rec_gender_raw, rec_preprocessor, rec_sensitive_idx, rec_best_params
     )
     
@@ -329,7 +329,7 @@ if __name__ == "__main__":
     adult_best_params = tune_xgboost(adult_X_train, adult_y_train)
     
     print("\n  [CV] Running Stratified 5-Fold CV...")
-    adult_results = run_cv_pipeline(
+    adult_results, adult_cv_metrics = run_cv_pipeline(
         adult_X_raw, adult_y, adult_gender_raw, adult_preprocessor, adult_sensitive_idx, adult_best_params
     )
     
@@ -369,6 +369,8 @@ if __name__ == "__main__":
     cv_pipeline_bundle = {
         "rec_results"      : rec_results,
         "adult_results"    : adult_results,
+        "rec_cv_metrics"   : rec_cv_metrics,
+        "adult_cv_metrics" : adult_cv_metrics,
         "rec_best_params"  : rec_best_params,
         "adult_best_params": adult_best_params
     }
