@@ -1,0 +1,4 @@
+Model,SPD,DIR,EOD
+Logistic Regression,0.9351,0.0315,0.9497
+Random Forest,0.1061,0.6966,0.1724
+XGBoost,0.0789,0.807,0.1386

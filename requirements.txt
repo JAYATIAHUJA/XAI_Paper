@@ -1,0 +1,14 @@
+kaggle
+kagglehub[pandas-datasets]
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+xgboost
+shap
+fairlearn
+aif360
+lime
+scipy
+joblib

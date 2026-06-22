@@ -1,0 +1,11 @@
+# Ignore pickle files and model checkpoints
+*.pkl
+data/*.pkl
+
+# Ignore python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
