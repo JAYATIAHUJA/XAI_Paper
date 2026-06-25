@@ -60,7 +60,7 @@ if __name__ == "__main__":
     print("  RECRUITMENT BIAS & FAIRNESS AI -- FULL PIPELINE")
     print("=" * 70)
 
-    # Allow skipping steps via arg: python run_all.py --start 3
+    # Allow skipping steps via arg: python3 run_all.py --start 3
     start_from = 1
     for i, arg in enumerate(sys.argv):
         if arg == "--start" and i + 1 < len(sys.argv):
