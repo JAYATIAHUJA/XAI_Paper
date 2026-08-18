@@ -1,0 +1,10 @@
+{
+  "folds": 5,
+  "repeats": 3,
+  "seed": 42,
+  "acs_max_rows": 30000,
+  "cf_threshold": 0.1,
+  "main_results_folds": 15,
+  "causal_results_folds": 15,
+  "note": "All fitted artifacts are training-fold only."
+}

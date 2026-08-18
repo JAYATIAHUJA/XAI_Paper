@@ -328,21 +328,23 @@ def _hierarchical_pos(G: nx.DiGraph) -> dict:
 # --------------------------------------------------------------------------- #
 # Build + fit SCM for a dataset bundle
 # --------------------------------------------------------------------------- #
-def get_scm(name: str):
+def get_scm(name: str, fit_df: pd.DataFrame | None = None):
     """Build (bundle, scm) for a dataset.  Rebuilds on demand -- faster and more
     robust than pickling across modules.  Only synthetic/adult have expert DAGs;
     recruitment is a null-control with no SCM."""
     bundle = common.load_dataset(name)
     G = expert_dag_synthetic() if name == "synthetic" else expert_dag_adult()
-    return bundle, build_scm(bundle, G)
+    return bundle, build_scm(bundle, G, fit_df=fit_df)
 
 
-def build_scm(bundle: common.DatasetBundle, G: nx.DiGraph) -> AdditiveNoiseSCM:
+def build_scm(bundle: common.DatasetBundle, G: nx.DiGraph,
+              fit_df: pd.DataFrame | None = None) -> AdditiveNoiseSCM:
     # SCM works on every DAG node that is an observed column (this includes the
     # raw sensitive string column, which feature_cols deliberately omits).
     nodes_in_df = [n for n in G.nodes() if n in bundle.df.columns]
     scm = AdditiveNoiseSCM(graph=G, raw_cols=nodes_in_df)
-    scm.fit(bundle.df[nodes_in_df], target_node=bundle.target)
+    source = bundle.df if fit_df is None else fit_df
+    scm.fit(source[nodes_in_df], target_node=bundle.target)
     return scm
 
 

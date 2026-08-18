@@ -29,7 +29,28 @@ This repository contains the codebase and implementation for a research paper on
 - `11_improved_training.py`: Initial cross-validated and tuned training script.
 - `run_all.py`: Master script to run baseline pipeline steps.
 
-## How to Run
+## Canonical publication experiments
+
+The leakage-free publication pipeline is
+`cefhf_architecture/publication_experiments.py`. It evaluates the synthetic SCM,
+UCI Adult, and Folktables ACS Employment using 5-fold cross-validation repeated
+three times. Preprocessing, reweighing, model fitting, and the synthetic SCM are
+fit inside each training fold. Simple protected-attribute flipping is reported
+as sensitivity, not as counterfactual fairness; SCM counterfactual metrics are
+restricted to the known synthetic causal model.
+
+```bash
+python cefhf_architecture/publication_experiments.py --folds 5 --repeats 3 --acs-max-rows 30000
+python -m pytest -q
+```
+
+The first command downloads the official 2018 California ACS PUMS extract on
+first use. Publication artifacts are written as `publication_*.csv` and a JSON
+run manifest under `cefhf_architecture/outputs/`. The older numbered scripts are
+retained only to reproduce the initial exploratory study and should not be used
+for manuscript headline results.
+
+## Legacy exploratory pipeline
 
 1. Install dependencies:
    ```bash

@@ -1,0 +1,4 @@
+dataset,rows,features,target_rate,sensitive_groups,missing_cells_rate,duplicate_rows_rate,source
+synthetic,20000,13,0.4831,2,0.0,0.0,known synthetic SCM
+adult,30162,14,0.24892248524633645,2,0.0,0.0007625489025926662,UCI Adult (1994 Census extract)
+acs_employment_ca_2018,30000,17,0.45543333333333336,2,0.0,0.16713333333333333,"Folktables ACSEmployment, California 2018 1-Year ACS PUMS"

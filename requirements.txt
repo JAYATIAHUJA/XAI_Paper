@@ -12,3 +12,5 @@ aif360
 lime
 scipy
 joblib
+folktables==0.0.12
+pytest==8.4.1
