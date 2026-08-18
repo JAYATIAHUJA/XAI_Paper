@@ -1,0 +1,7 @@
+dataset,variant,n_features,n_dropped,adv_auc_before,adv_auc_after,note
+synthetic,proxy_removal,11,7,0.8519255628843558,0.7781969543314815,race;gap_years;negotiation;zip;university_quality;skills;screening_score
+synthetic,reweighing,11,0,0.8519255628843558,0.8519255628843558,Kamiran-Calders sample weights
+synthetic,residualize,11,0,0.8519255628843558,0.47559115209789143,residualized vs A
+adult,proxy_removal,12,2,0.8640108040919017,0.6187415963401639,relationship;hours-per-week
+adult,reweighing,12,0,0.8640108040919017,0.8640108040919017,Kamiran-Calders sample weights
+adult,residualize,12,0,0.8640108040919017,0.47388506294432614,residualized vs A

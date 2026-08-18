@@ -1,0 +1,17 @@
+feature,mean_abs_shap,shap_rank,layer1_proxy_flagged,causal_role_flagged
+num__screening_score,0.8983204960823059,0,True,True
+num__skills,0.8470435738563538,1,True,False
+num__experience_years,0.3361242711544037,2,False,False
+num__negotiation,0.13381892442703247,3,True,True
+num__ses,0.10211291164159775,4,False,False
+num__gap_years,0.09951196610927582,5,True,True
+num__zip,0.09327848255634308,6,True,True
+cat__education_level_HighSchool,0.09318974614143372,7,False,False
+num__university_quality,0.08729378134012222,8,True,True
+cat__education_level_PhD,0.08653756976127625,9,False,False
+num___gender_enc,0.07519568502902985,10,False,False
+num__age,0.0542818158864975,11,False,False
+cat__education_level_Masters,0.03137945383787155,12,False,False
+cat__education_level_Bachelors,0.025531813502311707,13,False,False
+cat__race_Majority,0.020598001778125763,14,True,True
+cat__race_Minority,0.0,15,True,True

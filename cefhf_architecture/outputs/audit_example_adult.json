@@ -1,0 +1,39 @@
+{
+  "record_id": "rec-000000",
+  "timestamp": "2026-08-17T12:00:00Z",
+  "input_hash": "7e19e7af3ab9137b",
+  "protected_attrs": {
+    "sex": "Female"
+  },
+  "prediction": {
+    "label": 0,
+    "probability": 0.0672
+  },
+  "sensitivity_signals": {
+    "ps": 0.0605,
+    "cfvr_interval": [
+      0.0605,
+      0.1105
+    ],
+    "df_epsilon": 0.0
+  },
+  "explanation": {
+    "top_attributions": [],
+    "ranked_actions": []
+  },
+  "routing": {
+    "escalated": true,
+    "trigger": "ps",
+    "reasons": {
+      "ps": true,
+      "cfvr": false,
+      "df_eps": true
+    }
+  },
+  "review": {
+    "reviewer_id": "",
+    "decision": "",
+    "reason": "",
+    "review_timestamp": ""
+  }
+}

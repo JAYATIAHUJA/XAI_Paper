@@ -1,0 +1,212 @@
+{
+  "synthetic": [
+    {
+      "candidate": {
+        "gender": "Male",
+        "race": "Minority",
+        "age": 27,
+        "ses": 0.8526440626236157,
+        "gap_years": 0.4660294485390469,
+        "negotiation": -0.515327727745541,
+        "zip": 1.117,
+        "university_quality": 1.414321653967831,
+        "skills": 0.1589282316570699,
+        "experience_years": 4.533970551460953,
+        "education_level": "Masters",
+        "screening_score": 0.1110202408028691,
+        "u_confounder": -0.4310186811318907,
+        "shortlisted": 1
+      },
+      "base_p": 0.4218246340751648,
+      "ranked_actions": [
+        {
+          "feature": "skills",
+          "intervention_to": 0.6589407321258395,
+          "PS": 0.6496984958648682,
+          "base_p": 0.4218246340751648
+        },
+        {
+          "feature": "screening_score",
+          "intervention_to": 0.6110327412716386,
+          "PS": 0.5941504240036011,
+          "base_p": 0.4218246340751648
+        },
+        {
+          "feature": "experience_years",
+          "intervention_to": 9.441239506163944,
+          "PS": 0.40520399808883667,
+          "base_p": 0.4218246340751648
+        },
+        {
+          "feature": "education_level",
+          "intervention_to": "PhD",
+          "PS": 0.2964078485965729,
+          "base_p": 0.4218246340751648
+        },
+        {
+          "feature": "gap_years",
+          "intervention_to": 0.2498650236729031,
+          "PS": 0.2862803041934967,
+          "base_p": 0.4218246340751648
+        },
+        {
+          "feature": "negotiation",
+          "intervention_to": -0.14261669781436415,
+          "PS": 0.25472691655158997,
+          "base_p": 0.4218246340751648
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "gender": "Female",
+        "race": "Majority",
+        "age": 48,
+        "ses": 0.2433149575683618,
+        "gap_years": 0.0,
+        "negotiation": 0.0241755486870381,
+        "zip": 0.013,
+        "university_quality": -0.102736657097101,
+        "skills": -0.3580197369358854,
+        "experience_years": 26.0,
+        "education_level": "Masters",
+        "screening_score": -0.9101758334225236,
+        "u_confounder": 0.501665139362573,
+        "shortlisted": 1
+      },
+      "base_p": 0.3696042597293854,
+      "ranked_actions": [
+        {
+          "feature": "experience_years",
+          "intervention_to": 30.907268954702992,
+          "PS": 0.850581705570221,
+          "base_p": 0.3696042597293854
+        },
+        {
+          "feature": "education_level",
+          "intervention_to": "PhD",
+          "PS": 0.7814648747444153,
+          "base_p": 0.3696042597293854
+        },
+        {
+          "feature": "negotiation",
+          "intervention_to": 0.39688657861821497,
+          "PS": 0.7466182112693787,
+          "base_p": 0.3696042597293854
+        },
+        {
+          "feature": "gap_years",
+          "intervention_to": 0.0,
+          "PS": 0.7269642949104309,
+          "base_p": 0.3696042597293854
+        },
+        {
+          "feature": "skills",
+          "intervention_to": 0.14199276353288415,
+          "PS": 0.6600201725959778,
+          "base_p": 0.3696042597293854
+        },
+        {
+          "feature": "screening_score",
+          "intervention_to": -0.41016333295375407,
+          "PS": 0.5858621001243591,
+          "base_p": 0.3696042597293854
+        }
+      ]
+    }
+  ],
+  "adult": [
+    {
+      "candidate": {
+        "age": 23,
+        "workclass": "Private",
+        "fnlwgt": 200089,
+        "education": "Some-college",
+        "education-num": 10,
+        "marital-status": "Married-civ-spouse",
+        "occupation": "Craft-repair",
+        "relationship": "Other-relative",
+        "race": "White",
+        "sex": "Male",
+        "capital-gain": 0,
+        "capital-loss": 0,
+        "hours-per-week": 40,
+        "native-country": "El-Salvador",
+        "income": 0
+      },
+      "base_p": 0.0436442531645298,
+      "ranked_actions": [
+        {
+          "feature": "hours-per-week",
+          "intervention_to": 45.98999211463744,
+          "PS": 0.01870029605925083,
+          "base_p": 0.0436442531645298
+        },
+        {
+          "feature": "education-num",
+          "intervention_to": 11.274997459428368,
+          "PS": 0.017413904890418053,
+          "base_p": 0.0436442531645298
+        },
+        {
+          "feature": "capital-loss",
+          "intervention_to": 202.14918524318784,
+          "PS": 0.011511892080307007,
+          "base_p": 0.0436442531645298
+        },
+        {
+          "feature": "capital-gain",
+          "intervention_to": 3703.1732483417513,
+          "PS": 0.0012545777717605233,
+          "base_p": 0.0436442531645298
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "age": 51,
+        "workclass": "Private",
+        "fnlwgt": 117253,
+        "education": "HS-grad",
+        "education-num": 9,
+        "marital-status": "Widowed",
+        "occupation": "Prof-specialty",
+        "relationship": "Unmarried",
+        "race": "White",
+        "sex": "Female",
+        "capital-gain": 0,
+        "capital-loss": 0,
+        "hours-per-week": 40,
+        "native-country": "United-States",
+        "income": 0
+      },
+      "base_p": 0.05869675800204277,
+      "ranked_actions": [
+        {
+          "feature": "hours-per-week",
+          "intervention_to": 45.98999211463744,
+          "PS": 0.2645934820175171,
+          "base_p": 0.05869675800204277
+        },
+        {
+          "feature": "education-num",
+          "intervention_to": 10.274997459428368,
+          "PS": 0.24463212490081787,
+          "base_p": 0.05869675800204277
+        },
+        {
+          "feature": "capital-loss",
+          "intervention_to": 202.14918524318784,
+          "PS": 0.08944376558065414,
+          "base_p": 0.05869675800204277
+        },
+        {
+          "feature": "capital-gain",
+          "intervention_to": 3703.1732483417513,
+          "PS": 0.012754510156810284,
+          "base_p": 0.05869675800204277
+        }
+      ]
+    }
+  ]
+}

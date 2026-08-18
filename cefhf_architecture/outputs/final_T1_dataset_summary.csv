@@ -1,0 +1,4 @@
+dataset,n,n_features,protected,base_rate,n_numeric,n_categorical
+synthetic,20000,11,gender,0.483,9,2
+adult,30162,12,sex,0.249,5,7
+recruitment,2000,4,gender,0.403,3,1

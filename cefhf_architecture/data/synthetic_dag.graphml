@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="label" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="gender" />
+    <node id="gap_years" />
+    <node id="negotiation" />
+    <node id="screening_score" />
+    <node id="race" />
+    <node id="zip" />
+    <node id="university_quality" />
+    <node id="ses" />
+    <node id="skills" />
+    <node id="experience_years" />
+    <node id="shortlisted" />
+    <node id="education_level" />
+    <node id="u_confounder" />
+    <edge source="gender" target="gap_years">
+      <data key="d0">discriminatory</data>
+    </edge>
+    <edge source="gender" target="negotiation">
+      <data key="d0">discriminatory</data>
+    </edge>
+    <edge source="gender" target="screening_score">
+      <data key="d0">discriminatory</data>
+    </edge>
+    <edge source="gap_years" target="shortlisted">
+      <data key="d0">structural</data>
+    </edge>
+    <edge source="negotiation" target="shortlisted">
+      <data key="d0">structural</data>
+    </edge>
+    <edge source="screening_score" target="shortlisted">
+      <data key="d0">structural</data>
+    </edge>
+    <edge source="race" target="zip">
+      <data key="d0">proxy</data>
+    </edge>
+    <edge source="zip" target="university_quality">
+      <data key="d0">proxy</data>
+    </edge>
+    <edge source="university_quality" target="skills">
+      <data key="d0">legitimate</data>
+    </edge>
+    <edge source="ses" target="university_quality">
+      <data key="d0">legitimate</data>
+    </edge>
+    <edge source="skills" target="screening_score">
+      <data key="d0">legitimate</data>
+    </edge>
+    <edge source="skills" target="shortlisted">
+      <data key="d0">legitimate</data>
+    </edge>
+    <edge source="experience_years" target="screening_score">
+      <data key="d0">legitimate</data>
+    </edge>
+    <edge source="experience_years" target="shortlisted">
+      <data key="d0">legitimate</data>
+    </edge>
+    <edge source="education_level" target="shortlisted">
+      <data key="d0">legitimate</data>
+    </edge>
+    <edge source="u_confounder" target="gender">
+      <data key="d0">confounded</data>
+    </edge>
+    <edge source="u_confounder" target="shortlisted">
+      <data key="d0">confounded</data>
+    </edge>
+  </graph>
+</graphml>
