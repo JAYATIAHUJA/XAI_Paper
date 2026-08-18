@@ -45,7 +45,11 @@ DATA_DIR = os.path.join(ROOT, "data")
 OUT_DIR = os.path.join(ROOT, "outputs")
 CFG_PATH = os.path.join(ROOT, "configs", "seeds.yaml")
 REPO_ROOT = os.path.dirname(ROOT)                       # .../research
-XAI_PAPER = os.path.join(REPO_ROOT, "XAI_Paper")        # read-only source of adult/recruitment
+# The architecture now lives directly below the repository root.  Older copies
+# were nested in an ``XAI_Paper`` directory, so retain that layout only as a
+# backwards-compatible fallback.
+_legacy_root = os.path.join(REPO_ROOT, "XAI_Paper")
+XAI_PAPER = _legacy_root if os.path.isdir(_legacy_root) else REPO_ROOT
 os.makedirs(OUT_DIR, exist_ok=True)
 os.makedirs(DATA_DIR, exist_ok=True)
 
@@ -86,7 +90,14 @@ class DatasetBundle:
 
     # -- transformed matrix helpers -----------------------------------------
     def transform(self, df_subset: pd.DataFrame) -> np.ndarray:
-        X_raw = df_subset[self.feature_cols_with_enc()]
+        prepared = df_subset.copy()
+        if self.sensitive_enc_col not in prepared:
+            classes = sorted(self.df[self.sensitive].astype(str).str.strip().unique())
+            mapping = {value: idx for idx, value in enumerate(classes)}
+            prepared[self.sensitive_enc_col] = (
+                prepared[self.sensitive].astype(str).str.strip().map(mapping)
+            )
+        X_raw = prepared[self.feature_cols_with_enc()]
         return self.preprocessor.transform(X_raw)
 
     def feature_cols_with_enc(self) -> list:
@@ -179,7 +190,8 @@ def load_synthetic() -> DatasetBundle:
                                  "skills"])
 
 
-def _finalize(name, df, target, sensitive, feature_cols, legitimate) -> DatasetBundle:
+def _finalize(name, df, target, sensitive, feature_cols, legitimate,
+              fit_df=None) -> DatasetBundle:
     df = df.copy()
     # label-encode the protected attribute (placed first in the transformed space)
     le = LabelEncoder()
@@ -189,8 +201,12 @@ def _finalize(name, df, target, sensitive, feature_cols, legitimate) -> DatasetB
     feature_cols = [c for c in feature_cols if c in df.columns and c != sensitive]
     numeric, categorical = _split_feature_types(df, feature_cols, sensitive)
     pre = _build_preprocessor([enc_col] + numeric, categorical)
-    # fit on a train split to avoid leakage, consistent with 12_full_robust_pipeline
-    X_raw = df[[enc_col] + numeric + categorical]
+    # Callers running an experiment must pass the training partition as fit_df.
+    # Loading a standalone bundle still fits all rows for exploratory use only.
+    source = df if fit_df is None else fit_df.copy()
+    if enc_col not in source:
+        source[enc_col] = le.transform(source[sensitive].astype(str).str.strip())
+    X_raw = source[[enc_col] + numeric + categorical]
     pre.fit(X_raw)
     return DatasetBundle(
         name=name, df=df, target=target, sensitive=sensitive,
