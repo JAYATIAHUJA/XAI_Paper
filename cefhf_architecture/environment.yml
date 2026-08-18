@@ -1,0 +1,27 @@
+# CEFHF reference implementation — Python dependencies
+# Create:  python -m venv .venv && .venv/bin/pip install -r <(grep -v '^\s*#' environment.yml | awk '{print $2"=="}' 2>/dev/null)
+# Simpler: .venv/bin/pip install numpy pandas scipy scikit-learn matplotlib seaborn \
+#          xgboost shap fairlearn aif360 networkx statsmodels pyyaml dowhy pgmpy dice-ml tabulate
+name: cefhf
+channels: [conda-forge]
+dependencies:
+  - python>=3.11
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - xgboost
+  - shap
+  - fairlearn
+  - aif360
+  - networkx
+  - statsmodels
+  - pyyaml
+  - tabulate
+  - pip
+  - pip:
+      - dowhy
+      - pgmpy
+      - dice-ml

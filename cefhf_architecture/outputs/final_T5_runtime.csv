@@ -1,0 +1,8 @@
+layer,runtime_s
+L1 proxy/D_fair,~5
+L2 DAG+SCM,~8
+L3 metrics,~30
+L4 fair training,~60
+L5 explainability,~40
+L6 router,~15
+analyses (gamma/ablation/shap-vs-cefhf),~60

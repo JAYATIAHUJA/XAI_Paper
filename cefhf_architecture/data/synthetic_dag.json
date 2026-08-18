@@ -1,0 +1,110 @@
+{
+  "nodes": [
+    "gender",
+    "gap_years",
+    "negotiation",
+    "screening_score",
+    "race",
+    "zip",
+    "university_quality",
+    "ses",
+    "skills",
+    "experience_years",
+    "shortlisted",
+    "education_level",
+    "u_confounder"
+  ],
+  "edges": [
+    {
+      "source": "gender",
+      "target": "gap_years",
+      "label": "discriminatory"
+    },
+    {
+      "source": "gender",
+      "target": "negotiation",
+      "label": "discriminatory"
+    },
+    {
+      "source": "gender",
+      "target": "screening_score",
+      "label": "discriminatory"
+    },
+    {
+      "source": "gap_years",
+      "target": "shortlisted",
+      "label": "structural"
+    },
+    {
+      "source": "negotiation",
+      "target": "shortlisted",
+      "label": "structural"
+    },
+    {
+      "source": "screening_score",
+      "target": "shortlisted",
+      "label": "structural"
+    },
+    {
+      "source": "race",
+      "target": "zip",
+      "label": "proxy"
+    },
+    {
+      "source": "zip",
+      "target": "university_quality",
+      "label": "proxy"
+    },
+    {
+      "source": "university_quality",
+      "target": "skills",
+      "label": "legitimate"
+    },
+    {
+      "source": "ses",
+      "target": "university_quality",
+      "label": "legitimate"
+    },
+    {
+      "source": "skills",
+      "target": "screening_score",
+      "label": "legitimate"
+    },
+    {
+      "source": "skills",
+      "target": "shortlisted",
+      "label": "legitimate"
+    },
+    {
+      "source": "experience_years",
+      "target": "screening_score",
+      "label": "legitimate"
+    },
+    {
+      "source": "experience_years",
+      "target": "shortlisted",
+      "label": "legitimate"
+    },
+    {
+      "source": "education_level",
+      "target": "shortlisted",
+      "label": "legitimate"
+    },
+    {
+      "source": "u_confounder",
+      "target": "gender",
+      "label": "confounded"
+    },
+    {
+      "source": "u_confounder",
+      "target": "shortlisted",
+      "label": "confounded"
+    }
+  ],
+  "protected": [
+    "gender",
+    "race"
+  ],
+  "target": "shortlisted",
+  "confounder": "u_confounder"
+}

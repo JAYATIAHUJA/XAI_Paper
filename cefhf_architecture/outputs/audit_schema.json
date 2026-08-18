@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CEFHF Human-in-the-Loop Audit Record",
+  "description": "Designed to support (not 'satisfy') IEEE 7003-2024 transparency clauses.",
+  "type": "object",
+  "required": [
+    "record_id",
+    "timestamp",
+    "input_hash",
+    "protected_attrs",
+    "prediction",
+    "sensitivity_signals",
+    "explanation",
+    "routing",
+    "review"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "input_hash": {
+      "type": "string",
+      "description": "SHA-256 of the candidate feature vector"
+    },
+    "protected_attrs": {
+      "type": "object",
+      "description": "Z: the protected attributes (gender/race/age)"
+    },
+    "prediction": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "integer"
+        },
+        "probability": {
+          "type": "number"
+        }
+      }
+    },
+    "sensitivity_signals": {
+      "type": "object",
+      "properties": {
+        "ps": {
+          "type": "number",
+          "description": "Probability of Sufficiency for the top actionable intervention"
+        },
+        "ps_per_action": {
+          "type": "object"
+        },
+        "cfvr_interval": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "[lower, upper] under gamma"
+        },
+        "df_epsilon": {
+          "type": "number"
+        }
+      }
+    },
+    "explanation": {
+      "type": "object",
+      "properties": {
+        "top_attributions": {
+          "type": "array"
+        },
+        "ranked_actions": {
+          "type": "array"
+        }
+      }
+    },
+    "routing": {
+      "type": "object",
+      "required": [
+        "escalated",
+        "trigger",
+        "reasons"
+      ],
+      "properties": {
+        "escalated": {
+          "type": "boolean"
+        },
+        "trigger": {
+          "type": "string"
+        },
+        "reasons": {
+          "type": "object"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "reviewer_id": {
+          "type": "string"
+        },
+        "decision": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "review_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

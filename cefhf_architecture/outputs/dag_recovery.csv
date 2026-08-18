@@ -1,0 +1,16 @@
+edge,truth,recovered,correct
+education_level->shortlisted,True,True,True
+experience_years->screening_score,True,True,True
+experience_years->shortlisted,True,True,True
+gap_years->shortlisted,True,True,True
+gender->gap_years,True,True,True
+gender->negotiation,True,True,True
+gender->screening_score,True,True,True
+negotiation->shortlisted,True,True,True
+race->zip,True,True,True
+screening_score->shortlisted,True,True,True
+ses->university_quality,True,True,True
+skills->screening_score,True,True,True
+skills->shortlisted,True,True,True
+university_quality->skills,True,True,True
+zip->university_quality,True,True,True
